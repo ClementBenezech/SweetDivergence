@@ -1,0 +1,596 @@
+@charset "UTF-8";
+/*Used to adress desktop specific layout
+This mixin uses the width value defined for desktop by retrieving it from the $breakpoints map.
+The @ content directive allows for custom properties to be specified in the @include in the scss class directly, making it reusable*/
+/*trying to create a generic positionning function for absolutely positionned elements in the container-result-list__result-container*/
+/*Step number size*/
+/*Step content margin*/
+/*@mixin step-content-margin($size) {
+  margin: $size $size $size 0px;
+}*/
+/*Handles the "heart filling effect", used on both index. html and restaurant pages.
+It places both hearts (full and empty) at the same absolute position relative to the parent container
+Using either $top and $right for mobile, $desk-top and $desk-right for desktop layout.
+On load, the full heart is placed below the empty one with a lower z-index value, with its opacity set to 0. 
+then, when hovering the "above and empty" heart (far), it will trigger an animation setting it's opacity to 0
+at the same time, using the + operator, the sibling "full heart" (fas) will start having its opacity set to 1
+In the end, the empty heart is invisible, and the full one has taken its place.*/
+/*make the menu item appear 1 by one inside a category
+It takes an item "child index" as an argument, and applies an animation to it. 
+It is called from _restaurant_pages.scss, to be nested inside the __article-container class
+"For every article__container being the "nth" child of its parent (here the parent is the course container), play fade-in-grow-remove-top-margin animation"
+The higher the index, the longer the animation delay. 
+Child N°3 will get a delay of 2 + 0.25 * 3 =  2.75s, N°4 will get 2 + 0.25 * 4 = 3s etc etc*/
+/*For Desktop version of the discover button*/
+@keyframes desktop-btn-anim {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+/*On hover, we change the opacity of the full heart shape to one using the direct sibling selector + and animation*/
+@keyframes fill-heart {
+  /*almost duplicate, need to make a function out of this*/
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/*On hover, change the opacity of the outline style heart to 0 using animation*/
+@keyframes hide-heart {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+/*Get the steps of the how to section to color themself with a lighter version of color primary on hover*/
+@keyframes step-content-color {
+  to {
+    color: #9356dc;
+    background-color: #ffdff6;
+  }
+}
+/*loader spinner keyframes*/
+/*to... well. hide the load screen :) */
+@keyframes hide-load-screen {
+  0% {
+    width: 100%;
+    height: 100%;
+    visibility: visible;
+    opacity: 1;
+  }
+  100% {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+/*To rotate the two colored borders while getting them to fade out after 80% of the animation duration*/
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg);
+    opacity: 0;
+  }
+}
+/*To fade in the OHMYFOOD logo, then rotate it 360° during the remaining 50% of the animation*/
+@keyframes fade-in-rotate {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+  100% {
+    opacity: 0.5;
+    transform: rotate(360deg);
+  }
+}
+/* To fade in the main content while the spinner div is disappearing*/
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/*To animate the checkbox on the menu selection*/
+@keyframes enlarge {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 15%;
+  }
+}
+@keyframes shrink {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 85%;
+  }
+}
+/* To fade in the main content while the spinner div is disappearing*/
+@keyframes fade-in-grow-remove-top-margin {
+  0% {
+    opacity: 0;
+    height: 0%;
+    margin-top: 8vw;
+  }
+  100% {
+    opacity: 1;
+    height: 100%;
+    margin-top: 0;
+  }
+}
+@keyframes shake-explore {
+  0% {
+    margin-left: 0;
+  }
+  50% {
+    margin-left: -0.2vw;
+  }
+  100% {
+    margin-left: 0.2vw;
+  }
+}
+@keyframes shake-order {
+  0% {
+    /*margin-left: 35%;*/
+    transform: rotate(0deg);
+  }
+  25% {
+    /*margin-left: 34.5%;*/
+    transform: rotate(2deg);
+  }
+  50% {
+    /*margin-left: 35%;*/
+    transform: rotate(0deg);
+  }
+  75% {
+    /*margin-left: 34.5%;*/
+    transform: rotate(-2deg);
+  }
+  100% {
+    /*margin-left: 35%;*/
+    transform: rotate(0deg);
+  }
+}
+@keyframes heighten-div {
+  0% {
+    height: 0vw;
+  }
+  20% {
+    height: 8vw;
+  }
+  80% {
+    height: 8vw;
+  }
+  100% {
+    height: 25vw;
+  }
+}
+@keyframes padding-top-to-0 {
+  0% {
+    height: 0vw;
+    padding-top: 0vw;
+    margin-bottom: 28vw;
+  }
+  40% {
+    height: 28vw;
+    padding-top: 28vw;
+    margin-bottom: 0vw;
+  }
+  100% {
+    padding-top: 0vw;
+    height: 28vw;
+    margin-bottom: 0vw;
+  }
+}
+/*******************************************************/
+@keyframes enter-the-man-below {
+  0% {
+    margin-top: 40vh;
+  }
+  10% {
+    margin-top: 29vh;
+  }
+  25% {
+    margin-top: 32vh;
+  }
+  100% {
+    margin-top: 3vh;
+  }
+}
+@keyframes enter-the-menu-below {
+  0% {
+    top: 100vh;
+  }
+  50% {
+    top: -1vh;
+  }
+  100% {
+    top: 0vh;
+  }
+}
+@keyframes circle-with-orange-shadow {
+  from {
+    margin-top: 0;
+  }
+  to {
+    margin-top: -5vh;
+    border-radius: 50%;
+    height: 20vw;
+    box-shadow: -0.2vh -0.2vh 0.2vh #ff922b;
+  }
+}
+@keyframes circle-with-white-shadow {
+  to {
+    margin-top: 0vw;
+    border-radius: 50%;
+    height: 20vw;
+    box-shadow: -0.2vh -0.2vh 0.2vh white;
+    font-weight: bold;
+    font-size: 6vw;
+  }
+}
+@keyframes bumping-icon {
+  0% {
+    margin-top: -7vh;
+  }
+  25% {
+    margin-top: -8vh;
+  }
+  50% {
+    margin-top: -7vh;
+  }
+  75% {
+    margin-top: -7.5vh;
+  }
+  100% {
+    margin-top: -7vh;
+  }
+}
+@keyframes enter-content-left {
+  0% {
+    margin-left: -100vw;
+  }
+  100% {
+    margin-left: 0vw;
+  }
+}
+body {
+  padding: 0 auto;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.main-content {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+.main-content__background-image {
+  object-fit: cover;
+  object-position: bottom;
+  height: 100%;
+  width: 100vw;
+}
+
+.band-banner {
+  max-height: 10vh;
+  max-width: 359px;
+  object-fit: contain;
+  object-position: top;
+  position: absolute;
+  border-radius: 3vw 3vw 3vw 3vw;
+  top: 3vh;
+  left: 5vw;
+  z-index: 3;
+  padding-right: 2vw;
+  padding-left: 2vw;
+  background-color: black;
+  border: 0.2vh solid white;
+  box-shadow: 0 0 1vh black;
+}
+
+.listen-content {
+  width: 65vw;
+  height: 85vh;
+  margin-top: 5vh;
+  margin-left: 100vw;
+  background-color: rgba(255, 255, 255, 0.733);
+  position: absolute;
+  left: 5%;
+  top: 5%;
+  right: 5%;
+  bottom: 5%;
+  animation: enter-content-left 0.5s 0s ease-in-out forwards;
+  justify-items: flex-start;
+  justify-content: flex-start;
+  font-family: "Cabin Sketch", cursive;
+  font-weight: bold;
+  font-size: 3vh;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  z-index: 3;
+  align-content: center;
+  align-items: center;
+  display: none;
+}
+
+.concert-content {
+  width: 65vw;
+  height: 85vh;
+  margin-top: 5vh;
+  margin-left: 100vw;
+  background-color: rgba(255, 255, 255, 0.733);
+  position: absolute;
+  left: 5%;
+  top: 5%;
+  right: 5%;
+  bottom: 5%;
+  animation: enter-content-left 0.5s 0s ease-in-out forwards;
+  justify-items: flex-start;
+  justify-content: flex-start;
+  font-family: "Cabin Sketch", cursive;
+  font-weight: bold;
+  font-size: 3vh;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  z-index: 3;
+  align-content: center;
+  align-items: center;
+  display: none;
+}
+
+.band-content {
+  width: 65vw;
+  height: 85vh;
+  margin-top: 5vh;
+  margin-left: 100vw;
+  background-color: rgba(255, 255, 255, 0.733);
+  position: absolute;
+  left: 5%;
+  top: 5%;
+  right: 5%;
+  bottom: 5%;
+  animation: enter-content-left 0.5s 0s ease-in-out forwards;
+  justify-items: flex-start;
+  justify-content: flex-start;
+  font-family: "Cabin Sketch", cursive;
+  font-weight: bold;
+  font-size: 3vh;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  z-index: 3;
+  align-content: center;
+  align-items: center;
+  display: none;
+}
+
+.pictures-content {
+  width: 65vw;
+  height: 85vh;
+  margin-top: 5vh;
+  margin-left: 100vw;
+  background-color: rgba(255, 255, 255, 0.733);
+  position: absolute;
+  left: 5%;
+  top: 5%;
+  right: 5%;
+  bottom: 5%;
+  animation: enter-content-left 0.5s 0s ease-in-out forwards;
+  justify-items: flex-start;
+  justify-content: flex-start;
+  font-family: "Cabin Sketch", cursive;
+  font-weight: bold;
+  font-size: 3vh;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  z-index: 3;
+  align-content: center;
+  align-items: center;
+  display: none;
+}
+
+.page-content {
+  max-width: 65vw;
+  height: 85vh;
+  margin-top: 5vh;
+  margin-left: 100vw;
+  background-color: rgba(255, 255, 255, 0.733);
+  position: absolute;
+  left: 5%;
+  top: 5%;
+  right: 5%;
+  bottom: 5%;
+  animation: enter-content-left 0.5s 2.5s ease-in-out forwards;
+  font-family: "Cabin Sketch", cursive;
+  font-weight: bold;
+  font-size: 100px;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  z-index: 3;
+}
+.page-content span {
+  background-color: black;
+}
+.page-content i {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 5%;
+  background-color: black;
+  max-width: 100px;
+  max-height: 100px;
+  font-size: 75px;
+  border: 5px solid white;
+  box-shadow: 0 0 0.5vw black;
+  wrap: nowrap;
+  flex-shrink: 1;
+  padding: 20px;
+}
+.page-content i:hover {
+  color: white;
+  transform: scale(1.1);
+  border: 0.5vw solid orange;
+}
+.page-content h2,
+.page-content h3 {
+  color: white;
+  width: 100%;
+  text-align: center;
+  margin: 0 0 5vw 0;
+  font-size: 3vh;
+  height: 100%;
+}
+.page-content p {
+  box-sizing: border-box;
+  font-family: "Cabin Sketch", cursive;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1vh;
+  line-height: 5vh;
+  align-items: center;
+  border-radius: 5vh;
+  width: 50%;
+  height: auto;
+  color: orange;
+  justify-content: space-around;
+  flex-shrink: 1;
+}
+.page-content p:nth-child(odd) {
+  /*background-color: orange;
+  color: rgb(255, 255, 255);
+  flex-direction: row-reverse;*/
+}
+.page-content p > :not(i) {
+  font-family: "Cabin Sketch", cursive;
+  font-size: 2vw;
+}
+
+.the-man {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 40vh;
+  padding: 0;
+  z-index: 2;
+  align-items: center;
+}
+.the-man__image {
+  object-fit: contain;
+  object-position: bottom;
+  overflow: visible;
+  width: 60vw;
+  height: 40vh;
+  margin-top: 40vh;
+  animation: enter-the-man-below 2s 1s ease-in-out forwards;
+}
+
+.nav-bar {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 100vh;
+  right: 3vw;
+  padding-top: 5vh;
+  width: 10vh;
+  height: 100vh;
+  z-index: 4;
+  justify-content: flex-start;
+  align-items: center;
+  animation: enter-the-menu-below 1s 2.5s ease-in-out forwards;
+  background: linear-gradient(180deg, black, rgba(255, 255, 255, 0.76));
+}
+.nav-bar__image {
+  object-fit: cover;
+  width: 12vh;
+  margin-bottom: 5vh;
+  background-color: rgba(211, 211, 211, 0.5);
+  border-radius: 50%;
+  border: 0.3vh solid orange;
+  box-shadow: -1vh 0 1vh black;
+}
+.nav-bar__item {
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 3vh;
+  position: relative;
+  bottom: 0;
+  /*background-color: rgba(15, 15, 15, 0.308);*/
+  color: white;
+  font-family: "Cabin Sketch", cursive;
+  font-size: 2vh;
+  margin-top: 7vh;
+}
+.nav-bar__item > :not(i) {
+  height: 2vh;
+  text-align: center;
+}
+.nav-bar__item i {
+  margin-top: -6vh;
+  /*background: linear-gradient(0deg, rgb(0, 0, 0), rgb(255, 144, 18) 60%);*/
+  padding: 2vh;
+  font-size: 5vh;
+}
+.nav-bar__item i:hover {
+  color: orange;
+  /*background: linear-gradient(0deg, rgb(0, 0, 0), rgb(255, 255, 255) 60%);*/
+  animation: bumping-icon 1s ease-in-out forwards;
+}
+.nav-bar__item:nth-child(odd) {
+  margin-bottom: 3vh;
+  /*box-shadow: -0.1vw -0.1vw 0.1vw rgb(255, 255, 255);*/
+  /*border: 0.3vh solid orange;*/
+}
+.nav-bar__item:nth-child(odd):hover {
+  /*animation: circle-with-white-shadow 0.3s ease-in-out forwards;*/
+}
+.nav-bar__item:nth-child(even) {
+  margin-bottom: 3vh;
+  /*box-shadow: -0.2vh -0.2vh 0.2vh rgb(255, 161, 37);*/
+  /*border: 0.3vh solid white;*/
+}
+.nav-bar__item:nth-child(even):hover {
+  /*animation: circle-with-orange-shadow 0.5s ease-in-out forwards;*/
+}
+
+/*# sourceMappingURL=style.css.map */

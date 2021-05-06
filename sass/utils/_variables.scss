@@ -1,0 +1,23 @@
+$color-primary: rgb(147, 86, 220);
+$color-secondary: rgb(255, 121, 218);
+$color-tertiary: #99e2d0;
+$color-background-primary: rgb(249, 249, 249);
+$color-text: black;
+$color-button-text: white;
+$color-new-label: #038968;
+$color-background-new-label: #99e2d0;
+$color-text-light: white;
+$color-background-light: white;
+
+$font-size-regular: 4vw;
+$font-size-small: 2vw;
+$font-size-extra-small: 1vw;
+$section-title-margin: $font-size-regular * 2;
+
+$maximum-index: 99;
+$medium-index: 50;
+$minimum-index: 1;
+
+$breakpoints: (
+  desktop: 1080px,
+);

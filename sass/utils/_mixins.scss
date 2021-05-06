@@ -1,0 +1,161 @@
+@mixin display-flex-column-center {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+@mixin display-flex-row-wrap-center {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: center;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+@mixin display-flex-row-center {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  flex-direction: row;
+}
+
+@mixin display-flex-row-start-padding-left {
+  display: flex;
+  justify-content: start;
+  width: 100vw;
+  padding-left: 2 * $font-size-regular;
+}
+
+@mixin section-padding-standard($font-size) {
+  padding: $font-size * 2;
+}
+
+@mixin h2-flex-start-bold {
+  display: flex;
+  align-self: flex-start;
+  font-family: "Roboto-Bold";
+}
+
+@mixin loader-element {
+  position: absolute;
+  box-sizing: content-box;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 36vh;
+  margin-bottom: auto;
+}
+
+/*Used to adress desktop specific layout
+This mixin uses the width value defined for desktop by retrieving it from the $breakpoints map.
+The @ content directive allows for custom properties to be specified in the @include in the scss class directly, making it reusable*/
+@mixin desktop-only {
+  @media screen and (min-width: map-get($breakpoints, desktop)) {
+    @content;
+  }
+}
+
+/*trying to create a generic positionning function for absolutely positionned elements in the container-result-list__result-container*/
+
+@mixin position-absolute-top-right($top-distance, $right-distance, $index) {
+  position: absolute;
+  display: block;
+  top: $top-distance;
+  right: $right-distance;
+  z-index: $index;
+}
+
+@mixin font-size-margin($font-size, $margin) {
+  font-size: $font-size;
+  margin: $margin $margin $margin 0px;
+}
+
+/*Step number size*/
+
+@mixin step-number-dimension($flex, $height) {
+  flex: $flex;
+  line-height: $height;
+  height: $height;
+  padding: 0;
+  margin: 0;
+}
+
+/*Step content margin*/
+
+/*@mixin step-content-margin($size) {
+  margin: $size $size $size 0px;
+}*/
+
+@mixin step-content-child-properties($size) {
+  margin: 0;
+  line-height: $size;
+  font-size: $size;
+  padding: 0 0;
+}
+
+/*Handles the "heart filling effect", used on both index. html and restaurant pages.
+It places both hearts (full and empty) at the same absolute position relative to the parent container
+Using either $top and $right for mobile, $desk-top and $desk-right for desktop layout.
+On load, the full heart is placed below the empty one with a lower z-index value, with its opacity set to 0. 
+then, when hovering the "above and empty" heart (far), it will trigger an animation setting it's opacity to 0
+at the same time, using the + operator, the sibling "full heart" (fas) will start having its opacity set to 1
+In the end, the empty heart is invisible, and the full one has taken its place.*/
+
+@mixin heart-filling-effect($top, $right, $desk-top, $desk-right) {
+  i {
+    @include position-absolute-top-right($top, $right, $maximum-index);
+    font-size: 2 * $font-size-regular;
+    line-height: 2 * $font-size-regular;
+    @include desktop-only {
+      @include position-absolute-top-right(
+        $desk-top,
+        $desk-right,
+        $maximum-index
+      );
+      font-size: $font-size-small;
+      line-height: $font-size-small;
+    }
+
+    &.far {
+      color: black;
+      font-weight: 100;
+      &:hover {
+        opacity: 0;
+        animation: hide-heart 0.75s forwards;
+        & + i.fas {
+          animation: fill-heart 1.5s forwards;
+          background: linear-gradient(180deg, $color-secondary, $color-primary);
+          /*background-clip: text;*/
+          -webkit-background-clip: text;
+          color: transparent;
+        }
+      }
+    }
+
+    &.fas {
+      z-index: $minimum-index;
+      color: transparent;
+      opacity: 0;
+    }
+  }
+}
+
+/*make the menu item appear 1 by one inside a category
+It takes an item "child index" as an argument, and applies an animation to it. 
+It is called from _restaurant_pages.scss, to be nested inside the __article-container class
+"For every article__container being the "nth" child of its parent (here the parent is the course container), play fade-in-grow-remove-top-margin animation"
+The higher the index, the longer the animation delay. 
+Child N°3 will get a delay of 2 + 0.25 * 3 =  2.75s, N°4 will get 2 + 0.25 * 4 = 3s etc etc*/
+
+@mixin course-item-fade-in($item) {
+  &:nth-child(#{$item}) {
+    animation-name: fade-in-grow-remove-top-margin;
+    animation-duration: 1s;
+    animation-delay: #{2 + 0.25 * $item}s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+  }
+}

@@ -1,0 +1,331 @@
+body {
+  padding: 0 auto;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.main-content {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+
+  &__background-image {
+    object-fit: cover;
+    object-position: bottom;
+    height: 100%;
+    width: 100vw;
+  }
+}
+
+.band-banner {
+  max-height: 10vh;
+  max-width: 359px;
+  object-fit: contain;
+  object-position: top;
+  position: absolute;
+  border-radius: 3vw 3vw 3vw 3vw;
+  top: 3vh;
+  left: 5vw;
+  z-index: 3;
+  padding-right: 2vw;
+  padding-left: 2vw;
+  background-color: black;
+  border: 0.2vh solid white;
+  box-shadow: 0 0 1vh black;
+}
+
+.listen-content {
+  width: 65vw;
+  height: 85vh;
+  margin-top: 5vh;
+  margin-left: 100vw;
+  background-color: rgba(255, 255, 255, 0.733);
+  position: absolute;
+  left: 5%;
+  top: 5%;
+  right: 5%;
+  bottom: 5%;
+  animation: enter-content-left 0.5s 0s ease-in-out forwards;
+  justify-items: flex-start;
+  justify-content: flex-start;
+  font-family: "Cabin Sketch", cursive;
+  font-weight: bold;
+  font-size: 3vh;
+  color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  z-index: 3;
+  align-content: center;
+  align-items: center;
+  display: none;
+}
+
+.concert-content {
+  width: 65vw;
+  height: 85vh;
+  margin-top: 5vh;
+  margin-left: 100vw;
+  background-color: rgba(255, 255, 255, 0.733);
+  position: absolute;
+  left: 5%;
+  top: 5%;
+  right: 5%;
+  bottom: 5%;
+  animation: enter-content-left 0.5s 0s ease-in-out forwards;
+  justify-items: flex-start;
+  justify-content: flex-start;
+  font-family: "Cabin Sketch", cursive;
+  font-weight: bold;
+  font-size: 3vh;
+  color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  z-index: 3;
+  align-content: center;
+  align-items: center;
+  display: none;
+}
+
+.band-content {
+  width: 65vw;
+  height: 85vh;
+  margin-top: 5vh;
+  margin-left: 100vw;
+  background-color: rgba(255, 255, 255, 0.733);
+  position: absolute;
+  left: 5%;
+  top: 5%;
+  right: 5%;
+  bottom: 5%;
+  animation: enter-content-left 0.5s 0s ease-in-out forwards;
+  justify-items: flex-start;
+  justify-content: flex-start;
+  font-family: "Cabin Sketch", cursive;
+  font-weight: bold;
+  font-size: 3vh;
+  color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  z-index: 3;
+  align-content: center;
+  align-items: center;
+  display: none;
+}
+
+.pictures-content {
+  width: 65vw;
+  height: 85vh;
+  margin-top: 5vh;
+  margin-left: 100vw;
+  background-color: rgba(255, 255, 255, 0.733);
+  position: absolute;
+  left: 5%;
+  top: 5%;
+  right: 5%;
+  bottom: 5%;
+  animation: enter-content-left 0.5s 0s ease-in-out forwards;
+  justify-items: flex-start;
+  justify-content: flex-start;
+  font-family: "Cabin Sketch", cursive;
+  font-weight: bold;
+  font-size: 3vh;
+  color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  z-index: 3;
+  align-content: center;
+  align-items: center;
+  display: none;
+}
+
+.page-content {
+  max-width: 65vw;
+  height: 85vh;
+  margin-top: 5vh;
+  margin-left: 100vw;
+  background-color: rgba(255, 255, 255, 0.733);
+  position: absolute;
+  left: 5%;
+  top: 5%;
+  right: 5%;
+  bottom: 5%;
+  animation: enter-content-left 0.5s 2.5s ease-in-out forwards;
+
+  font-family: "Cabin Sketch", cursive;
+  font-weight: bold;
+  font-size: 100px;
+  color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  z-index: 3;
+  & span {
+    background-color: black;
+  }
+  & i {
+    display: inline-flex;
+    align-items: center;
+
+    border-radius: 5%;
+    background-color: black;
+    max-width: 100px;
+    max-height: 100px;
+    font-size: 75px;
+    border: 5px solid rgb(255, 255, 255);
+    box-shadow: 0 0 0.5vw black;
+    wrap: nowrap;
+    flex-shrink: 1;
+    padding: 20px;
+    &:hover {
+      color: white;
+      transform: scale(1.1);
+      border: 0.5vw solid orange;
+    }
+  }
+
+  & h2,
+  h3 {
+    color: rgb(255, 255, 255);
+    width: 100%;
+    text-align: center;
+    margin: 0 0 5vw 0;
+    font-size: 3vh;
+    height: 100%;
+  }
+
+  & p {
+    box-sizing: border-box;
+    font-family: "Cabin Sketch", cursive;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1vh;
+    line-height: 5vh;
+    align-items: center;
+    border-radius: 5vh;
+    width: 50%;
+    height: auto;
+    color: orange;
+    justify-content: space-around;
+    flex-shrink: 1;
+
+    &:nth-child(odd) {
+      /*background-color: orange;
+      color: rgb(255, 255, 255);
+      flex-direction: row-reverse;*/
+      & i {
+      }
+    }
+    & > :not(i) {
+      font-family: "Cabin Sketch", cursive;
+      font-size: 2vw;
+    }
+  }
+}
+
+.the-man {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 40vh;
+  padding: 0;
+  z-index: 2;
+  align-items: center;
+
+  &__image {
+    object-fit: contain;
+    object-position: bottom;
+    overflow: visible;
+    width: 60vw;
+    height: 40vh;
+    margin-top: 40vh;
+    animation: enter-the-man-below 2s 1s ease-in-out forwards;
+  }
+}
+
+.nav-bar {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 100vh;
+  right: 3vw;
+  padding-top: 5vh;
+
+  width: 10vh;
+  height: 100vh;
+  z-index: 4;
+  justify-content: flex-start;
+  align-items: center;
+  animation: enter-the-menu-below 1s 2.5s ease-in-out forwards;
+  background: linear-gradient(180deg, black, rgba(255, 255, 255, 0.76));
+  &__image {
+    object-fit: cover;
+    width: 12vh;
+    margin-bottom: 5vh;
+    background-color: rgba(211, 211, 211, 0.5);
+    border-radius: 50%;
+    border: 0.3vh solid orange;
+    box-shadow: -1vh 0 1vh black;
+  }
+  &__item {
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 3vh;
+    position: relative;
+    bottom: 0;
+    /*background-color: rgba(15, 15, 15, 0.308);*/
+    color: white;
+    font-family: "Cabin Sketch", cursive;
+    font-size: 2vh;
+    margin-top: 7vh;
+    & > :not(i) {
+      height: 2vh;
+      text-align: center;
+    }
+    & i {
+      margin-top: -6vh;
+      /*background: linear-gradient(0deg, rgb(0, 0, 0), rgb(255, 144, 18) 60%);*/
+      padding: 2vh;
+      font-size: 5vh;
+      &:hover {
+        color: orange;
+        /*background: linear-gradient(0deg, rgb(0, 0, 0), rgb(255, 255, 255) 60%);*/
+        animation: bumping-icon 1s ease-in-out forwards;
+      }
+    }
+    &:nth-child(odd) {
+      margin-bottom: 3vh;
+
+      /*box-shadow: -0.1vw -0.1vw 0.1vw rgb(255, 255, 255);*/
+
+      /*border: 0.3vh solid orange;*/
+      &:hover {
+        /*animation: circle-with-white-shadow 0.3s ease-in-out forwards;*/
+      }
+    }
+
+    &:nth-child(even) {
+      margin-bottom: 3vh;
+      /*box-shadow: -0.2vh -0.2vh 0.2vh rgb(255, 161, 37);*/
+
+      /*border: 0.3vh solid white;*/
+      &:hover {
+        /*animation: circle-with-orange-shadow 0.5s ease-in-out forwards;*/
+      }
+    }
+  }
+}

@@ -1,0 +1,279 @@
+/*For Desktop version of the discover button*/
+
+@keyframes desktop-btn-anim {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/*On hover, we change the opacity of the full heart shape to one using the direct sibling selector + and animation*/
+@keyframes fill-heart {
+  /*almost duplicate, need to make a function out of this*/
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/*On hover, change the opacity of the outline style heart to 0 using animation*/
+@keyframes hide-heart {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/*Get the steps of the how to section to color themself with a lighter version of color primary on hover*/
+@keyframes step-content-color {
+  to {
+    color: $color-primary;
+    background-color: lighten($color-secondary, 20%);
+  }
+}
+
+/*loader spinner keyframes*/
+
+/*to... well. hide the load screen :) */
+@keyframes hide-load-screen {
+  0% {
+    width: 100%;
+    height: 100%;
+    visibility: visible;
+    opacity: 1;
+  }
+  100% {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+/*To rotate the two colored borders while getting them to fade out after 80% of the animation duration*/
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/*To fade in the OHMYFOOD logo, then rotate it 360° during the remaining 50% of the animation*/
+@keyframes fade-in-rotate {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+  100% {
+    opacity: 0.5;
+    transform: rotate(360deg);
+  }
+}
+
+/* To fade in the main content while the spinner div is disappearing*/
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/*To animate the checkbox on the menu selection*/
+
+@keyframes enlarge {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 15%;
+  }
+}
+
+@keyframes shrink {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 85%;
+  }
+}
+
+/* To fade in the main content while the spinner div is disappearing*/
+@keyframes fade-in-grow-remove-top-margin {
+  0% {
+    opacity: 0;
+    height: 0%;
+    margin-top: 2 * $font-size-regular;
+  }
+  100% {
+    opacity: 1;
+    height: 100%;
+    margin-top: 0;
+  }
+}
+
+@keyframes shake-explore {
+  0% {
+    margin-left: 0;
+  }
+  50% {
+    margin-left: -0.2vw;
+  }
+  100% {
+    margin-left: 0.2vw;
+  }
+}
+
+@keyframes shake-order {
+  0% {
+    /*margin-left: 35%;*/
+    transform: rotate(0deg);
+  }
+  25% {
+    /*margin-left: 34.5%;*/
+    transform: rotate(2deg);
+  }
+  50% {
+    /*margin-left: 35%;*/
+    transform: rotate(-0deg);
+  }
+  75% {
+    /*margin-left: 34.5%;*/
+    transform: rotate(-2deg);
+  }
+  100% {
+    /*margin-left: 35%;*/
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes heighten-div {
+  0% {
+    height: 0vw;
+  }
+  20% {
+    height: 8vw;
+  }
+  80% {
+    height: 8vw;
+  }
+  100% {
+    height: 25vw;
+  }
+}
+
+@keyframes padding-top-to-0 {
+  0% {
+    height: 0vw;
+    padding-top: 0vw;
+    margin-bottom: 28vw;
+  }
+  40% {
+    height: 28vw;
+    padding-top: 28vw;
+    margin-bottom: 0vw;
+  }
+  100% {
+    padding-top: 0vw;
+    height: 28vw;
+    margin-bottom: 0vw;
+  }
+}
+
+/*******************************************************/
+@keyframes enter-the-man-below {
+  0% {
+    margin-top: 40vh;
+  }
+  10% {
+    margin-top: 29vh;
+  }
+  25% {
+    margin-top: 32vh;
+  }
+  100% {
+    margin-top: 3vh;
+  }
+}
+
+@keyframes enter-the-menu-below {
+  0% {
+    top: 100vh;
+  }
+  50% {
+    top: -1vh;
+  }
+  100% {
+    top: 0vh;
+  }
+}
+
+@keyframes circle-with-orange-shadow {
+  from {
+    margin-top: 0;
+  }
+  to {
+    margin-top: -5vh;
+    border-radius: 50%;
+    height: 20vw;
+    box-shadow: -0.2vh -0.2vh 0.2vh rgb(255, 146, 43);
+  }
+}
+
+@keyframes circle-with-white-shadow {
+  from {
+  }
+  to {
+    margin-top: 0vw;
+    border-radius: 50%;
+    height: 20vw;
+    box-shadow: -0.2vh -0.2vh 0.2vh rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 6vw;
+  }
+}
+
+@keyframes bumping-icon {
+  0% {
+    margin-top: -7vh;
+  }
+  25% {
+    margin-top: -8vh;
+  }
+  50% {
+    margin-top: -7vh;
+  }
+  75% {
+    margin-top: -7.5vh;
+  }
+  100% {
+    margin-top: -7vh;
+  }
+}
+
+@keyframes enter-content-left {
+  0% {
+    margin-left: -100vw;
+  }
+  100% {
+    margin-left: 0vw;
+  }
+}
