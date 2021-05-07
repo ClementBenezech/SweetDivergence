@@ -272,8 +272,79 @@
 @keyframes enter-content-left {
   0% {
     margin-left: -100vw;
+    display:flex;
   }
   100% {
     margin-left: 0vw;
+    left:5vw;
+  }
+}
+
+@keyframes send-to-top {
+  0% {
+    top: 0vh;
+  }
+  100% {
+    top: -95vh;
+  }
+}
+
+@keyframes expand-to-bottom {
+  0% {
+    top: -95vh;
+  }
+  100% {
+    top: 0vh;
+  }
+}
+
+@keyframes rotate-twice {
+  33% {
+    transform:rotate(40deg);
+  }
+  66% {
+    transform:rotate(-30deg);
+    background-color:black;
+    
+  }
+  100% {
+    transform:rotate(0deg);
+    
+  }
+}
+
+@keyframes opacity-to-one {
+  0% {
+ 
+    
+  }
+  40% {
+    transform:rotate(180deg);
+  }
+  60% {
+    transform:rotate(360deg);
+  }
+  80% {
+    transform:rotate(720deg);
+  }
+  90% {
+    transform:rotate(1080deg);
+  }
+  95% {
+    transform:rotate(1440deg);
+  }
+  100% {
+    transform:rotate(1800deg);
+    opacity:1;
+  }
+}
+
+@keyframes exit-right {
+  0% {
+    margin-left:0;
+  }
+  100% {
+    margin-left:200vw;
+    display:none;
   }
 }
