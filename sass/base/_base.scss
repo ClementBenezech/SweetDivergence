@@ -25,7 +25,7 @@ body {
 
 .band-banner {
   max-height: 10vh;
-  max-width: 359px;
+  max-width: 250px;
   object-fit: contain;
   object-position: top;
   position: absolute;
@@ -150,10 +150,10 @@ body {
 
 .page-content {
   max-width: 65vw;
-  height: 85vh;
+  height: 80vh;
   margin-top: 5vh;
   margin-left: 100vw;
-  background-color: rgba(255, 255, 255, 0.733);
+  background-color: rgba(255, 255, 255, 0.541);
   position: absolute;
   left: 5%;
   top: 5%;
@@ -164,72 +164,126 @@ body {
   font-family: "Cabin Sketch", cursive;
   font-weight: bold;
   font-size: 100px;
-  color: rgb(255, 255, 255);
+  color: rgba(248, 248, 248, 0.651);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   z-index: 3;
+  align-content:flex-start;
+  justify-content:center;
   & span {
-    background-color: black;
+
   }
   & i {
-    display: inline-flex;
-    align-items: center;
 
-    border-radius: 5%;
-    background-color: black;
-    max-width: 100px;
-    max-height: 100px;
-    font-size: 75px;
-    border: 5px solid rgb(255, 255, 255);
-    box-shadow: 0 0 0.5vw black;
-    wrap: nowrap;
+    align-items: center;
+    align-content:center;
+    justify-items:space-around;
+    /*background: linear-gradient(120deg, rgb(255, 145, 19) 30%, rgb(255, 254, 254) 60%,rgb(255, 162, 24) 90%);*/
+    color:rgb(255, 187, 0);
+    width:50%;
+    height:100%;
+    font-size: 100%;
+    line-height:100%;
+    flex-wrap: nowrap;
     flex-shrink: 1;
-    padding: 20px;
+    padding: 30%;
+    text-shadow: 0 0 3vw rgba(255, 255, 255, 0.815);
     &:hover {
-      color: white;
-      transform: scale(1.1);
-      border: 0.5vw solid orange;
+      /*color: white;
+      transform: scale(1.1);*/
     }
   }
 
   & h2,
   h3 {
+    box-sizing:border-box;
     color: rgb(255, 255, 255);
-    width: 100%;
+    width:65vw;
     text-align: center;
     margin: 0 0 5vw 0;
     font-size: 3vh;
-    height: 100%;
+    font-family: "Roboto";
+    text-shadow: 0 0 2vw black;
+    background-color:rgba(0, 0, 0, 0.534);
+    margin:0 0;
+    padding: 5% 5%;
   }
 
   & p {
     box-sizing: border-box;
-    font-family: "Cabin Sketch", cursive;
+    font-family: "Roboto";
     display: flex;
     flex-direction: row;
     margin-bottom: 1vh;
-    line-height: 5vh;
+
     align-items: center;
-    border-radius: 5vh;
-    width: 50%;
-    height: auto;
-    color: orange;
+    width: 45%;
+    height: 10%;
+    color: rgb(255, 255, 255);
     justify-content: space-around;
     flex-shrink: 1;
 
-    &:nth-child(odd) {
-      /*background-color: orange;
-      color: rgb(255, 255, 255);
-      flex-direction: row-reverse;*/
+    &:nth-child(3) {
       & i {
+        &:hover { 
+        color: rgb(2, 255, 44);
       }
     }
+  }
+
+  &:nth-child(4) {
+    & i {
+      &:hover { 
+        background-image: linear-gradient(-45deg, #35C3F3 0%, #8b9fe8 20%, #e681d8 39%, #ffa9a4 76%, #FED2CE 100%);
+        background-clip:text;
+    color:transparent;
+    text-shadow:0 0 0.5vw rgb(255, 255, 255, 0.2) ;
+      }
+  }
+}
+
+&:nth-child(5) {
+  & i {
+    &:hover { 
+    color: rgb(49, 70, 255);
+  }
+}
+}
+
+&:nth-child(6) {
+  & i {
+    &:hover { 
+    background:linear-gradient(270deg, rgb(225, 0, 255),rgb(17, 193, 247), green);
+    background-clip:text;
+    color:transparent;
+    text-shadow:0 0 0.5vw rgb(255, 255, 255,0.1) ;
+  }
+}
+}
+
+    &:nth-child(7) {
+      & i {
+        &:hover {
+          color: rgb(255, 2, 2);
+      }
+    }
+  }
+
+  &:nth-child(8) {
+    & i {
+      &:hover {
+        color: rgb(255, 166, 2);
+    }
+  }
+}
+    
     & > :not(i) {
       font-family: "Cabin Sketch", cursive;
       font-size: 2vw;
     }
-  }
+  
+}
 }
 
 .the-man {
