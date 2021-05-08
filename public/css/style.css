@@ -267,16 +267,6 @@ Child N°3 will get a delay of 2 + 0.25 * 3 =  2.75s, N°4 will get 2 + 0.25 * 4
     margin-top: -7vh;
   }
 }
-@keyframes enter-content-left {
-  0% {
-    margin-left: -100vw;
-    display: flex;
-  }
-  100% {
-    margin-left: 0vw;
-    left: 5vw;
-  }
-}
 @keyframes send-to-top {
   0% {
     top: 0vh;
@@ -332,7 +322,41 @@ Child N°3 will get a delay of 2 + 0.25 * 3 =  2.75s, N°4 will get 2 + 0.25 * 4
   }
   100% {
     margin-left: 200vw;
-    display: none;
+    /*display: none;*/
+  }
+}
+@keyframes enter-content-left {
+  0% {
+    margin-left: -100vw;
+    /*display: flex;*/
+  }
+  100% {
+    margin-left: 0vw;
+    left: 5vw;
+  }
+}
+@keyframes width-to-90 {
+  from {
+    margin-left: 0vw;
+    left: 5vw;
+    max-width: 75vw;
+  }
+  to {
+    margin-left: 0vw;
+    left: 5vw;
+    max-width: 90vw;
+  }
+}
+@keyframes width-to-75 {
+  from {
+    margin-left: 0vw;
+    left: 5vw;
+    max-width: 90vw;
+  }
+  to {
+    margin-left: 0vw;
+    left: 5vw;
+    max-width: 75vw;
   }
 }
 body {
@@ -371,18 +395,14 @@ body {
 
 .band-banner {
   max-height: 10vh;
-  max-width: 250px;
+  max-width: 50vw;
   object-fit: contain;
   object-position: top;
   position: absolute;
-  border-radius: 3vw 3vw 3vw 3vw;
   top: 3vh;
-  left: 5vw;
-  z-index: 3;
-  padding-right: 2vw;
-  padding-left: 2vw;
+  left: -0.3vw;
+  z-index: 5;
   background-color: black;
-  border: 0.2vh solid white;
   box-shadow: 0 0 1vh black;
 }
 
@@ -457,7 +477,7 @@ body {
   color: #00cc22;
 }
 .listen-content p:nth-child(2) i {
-  background-image: linear-gradient(-45deg, #35C3F3 0%, #8b9fe8 20%, #e681d8 39%, #ffa9a4 76%, #FED2CE 100%);
+  background-image: linear-gradient(-45deg, #35c3f3 0%, #8b9fe8 20%, #e681d8 39%, #ffa9a4 76%, #fed2ce 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -582,13 +602,13 @@ body {
 
 .page-content {
   max-width: 75vw;
-  height: 86vh;
+  height: 92vh;
   margin-top: 5vh;
   margin-left: -100vw;
   background-color: rgba(255, 255, 255, 0.623);
   position: absolute;
   left: 5%;
-  top: 5%;
+  top: 3vh;
   right: 5%;
   bottom: 5%;
   font-family: "Cabin Sketch", cursive;
@@ -605,7 +625,10 @@ body {
   text-align: center;
 }
 .page-content--extended {
-  max-width: 90vw;
+  animation: width-to-90 1s ease-in-out forwards;
+}
+.page-content--normal {
+  animation: width-to-75 1s ease-in-out forwards;
 }
 .page-content--pictures {
   overflow-y: scroll;
@@ -614,8 +637,7 @@ body {
 }
 .page-content--pictures img {
   display: flex;
-  flex-basis: 100%;
-  min-height: 25%;
+  flex-basis: 99%;
   box-sizing: border-box;
   width: 100%;
   object-fit: cover;
@@ -625,23 +647,24 @@ body {
 .page-content--band {
   overflow-y: scroll;
 }
+.page-content--listen {
+  flex-direction: row;
+}
 .page-content--listen p {
   box-sizing: border-box;
   font-family: "Roboto";
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   margin-bottom: 1vh;
   overflow: visible;
   margin: 0 0;
-  width: 30%;
-  height: 12vh;
+  flex-basis: 33%;
   color: white;
-  background-color: rgba(255, 255, 255, 0.589);
+  background-color: black;
   align-items: center;
   align-content: center;
   justify-items: space-around;
   justify-content: space-around;
-  flex-shrink: 1;
   overflow: hidden;
 }
 .page-content--listen p:hover {
@@ -674,7 +697,7 @@ body {
   color: #00cc22;
 }
 .page-content--listen p:nth-child(2) i {
-  background-image: linear-gradient(-45deg, #35C3F3 0%, #8b9fe8 20%, #e681d8 39%, #ffa9a4 76%, #FED2CE 100%);
+  background-image: linear-gradient(-45deg, #35c3f3 0%, #8b9fe8 20%, #e681d8 39%, #ffa9a4 76%, #fed2ce 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -741,10 +764,7 @@ body {
 .page-content img {
   object-fit: cover;
   display: flex;
-  max-height: 24%;
-  max-width: 90vw;
-  align-items: flex-end;
-  align-content: flex-end;
+  max-height: 25%;
   background-color: transparent;
   overflow: hidden;
 }
@@ -780,12 +800,13 @@ body {
   top: 100vh;
   right: 5vw;
   padding-top: 5vh;
+  box-shadow: 0 0 1vw rgba(0, 0, 0, 0.719);
   width: 15vw;
   height: 100vh;
   z-index: 4;
   justify-content: space-evenly;
   align-items: center;
-  align-content: flex-end;
+  align-content: flex-start;
   background: linear-gradient(180deg, black, rgba(255, 255, 255, 0.76));
 }
 .nav-bar--initial {
@@ -815,13 +836,14 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  height: 8vw;
+  height: 6vw;
   position: relative;
   bottom: 0;
   /*background-color: rgba(15, 15, 15, 0.308);*/
-  color: white;
+  color: black;
+  text-shadow: -0.3vw 0.3vw 0.5vw white;
   font-family: "Cabin Sketch", cursive;
-  font-size: 2vh;
+  font-size: 3vw;
   margin-top: 7vh;
 }
 .nav-bar__item--upside-down {
@@ -830,9 +852,10 @@ body {
 .nav-bar__item > :not(i) {
   height: 2vh;
   text-align: center;
+  color: white;
 }
 .nav-bar__item i {
-  margin-top: -6vh;
+  margin-top: -3vh;
   /*background: linear-gradient(0deg, rgb(0, 0, 0), rgb(255, 144, 18) 60%);*/
   padding: 2vh;
   font-size: 5vh;
