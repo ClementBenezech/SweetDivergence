@@ -190,13 +190,13 @@ The @ content directive allows for custom properties to be specified in the @inc
     margin-left: -40vh;
   }
   10% {
-    margin-left: -29vh;
+    margin-left: -25vh;
   }
   25% {
     margin-left: -32vh;
   }
   100% {
-    margin-left: -10vh;
+    margin-left: -12vh;
   }
 }
 @keyframes bumping-man {
@@ -497,6 +497,7 @@ body {
   display: flex;
   background-color: transparent;
   overflow: hidden;
+  object-position: top;
 }
 .page-content img:hover {
   /*animation: opacity-to-one 5s linear forwards;*/
@@ -512,7 +513,8 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-content: flex-start;
+  align-content: flex-end;
+  justify-content: flex-end;
   overflow-y: scroll;
 }
 .page-content--home p {
@@ -524,7 +526,7 @@ body {
   border-radius: 1vh;
   box-shadow: 1vh 1vh 0.5vh black;
   border: 1px solid white;
-  max-height: 50vh;
+  max-height: 60vh;
 }
 .page-content--home h2,
 .page-content--home h3 {
@@ -537,8 +539,7 @@ body {
   font-family: "Roboto";
   text-shadow: 0 0 1vh black;
   background-color: rgba(0, 0, 0, 0.849);
-  padding: 5% 5%;
-  margin-left: -3vh;
+  padding: 1% 1%;
   box-shadow: 0 0 1vw black;
 }
 .page-content--pictures {
@@ -735,25 +736,24 @@ body {
 }
 
 .the-man {
-  display: flex;
+  display: none;
   flex-direction: row;
   position: fixed;
-  left: 0;
-  bottom: 89vh;
-  width: 20vh;
-  height: 20vh;
+  left: 75vw;
+  top: 5vh;
+  width: 12vh;
+  height: 12vh;
   padding: 0;
-  z-index: 99;
+  z-index: 4;
   align-content: flex-start;
 }
 .the-man__image {
   object-fit: contain;
-  transform: rotate(90deg);
+  transform: rotate(180deg);
   object-position: center;
   overflow: visible;
   width: 100%;
-  height: 40vh;
-  margin-left: -40vh;
+  height: 100%;
   animation: enter-the-man-left 1s ease-in-out forwards;
 }
 .the-man__image:hover {
