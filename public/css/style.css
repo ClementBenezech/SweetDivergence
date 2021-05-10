@@ -1,189 +1,6 @@
-@charset "UTF-8";
 /*Used to adress desktop specific layout
 This mixin uses the width value defined for desktop by retrieving it from the $breakpoints map.
 The @ content directive allows for custom properties to be specified in the @include in the scss class directly, making it reusable*/
-/*For Desktop version of the discover button*/
-@keyframes desktop-btn-anim {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-/*On hover, we change the opacity of the full heart shape to one using the direct sibling selector + and animation*/
-@keyframes fill-heart {
-  /*almost duplicate, need to make a function out of this*/
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-/*On hover, change the opacity of the outline style heart to 0 using animation*/
-@keyframes hide-heart {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-/*Get the steps of the how to section to color themself with a lighter version of color primary on hover*/
-@keyframes step-content-color {
-  to {
-    color: #9356dc;
-    background-color: #ffdff6;
-  }
-}
-/*loader spinner keyframes*/
-/*to... well. hide the load screen :) */
-@keyframes hide-load-screen {
-  0% {
-    width: 100%;
-    height: 100%;
-    visibility: visible;
-    opacity: 1;
-  }
-  100% {
-    visibility: hidden;
-    opacity: 0;
-  }
-}
-/*To rotate the two colored borders while getting them to fade out after 80% of the animation duration*/
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  80% {
-    opacity: 1;
-  }
-  100% {
-    transform: rotate(360deg);
-    opacity: 0;
-  }
-}
-/*To fade in the OHMYFOOD logo, then rotate it 360° during the remaining 50% of the animation*/
-@keyframes fade-in-rotate {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-    transform: rotate(0deg);
-  }
-  100% {
-    opacity: 0.5;
-    transform: rotate(360deg);
-  }
-}
-/* To fade in the main content while the spinner div is disappearing*/
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-/*To animate the checkbox on the menu selection*/
-@keyframes enlarge {
-  from {
-    width: 0%;
-  }
-  to {
-    width: 15%;
-  }
-}
-@keyframes shrink {
-  from {
-    width: 100%;
-  }
-  to {
-    width: 85%;
-  }
-}
-/* To fade in the main content while the spinner div is disappearing*/
-@keyframes fade-in-grow-remove-top-margin {
-  0% {
-    opacity: 0;
-    height: 0%;
-    margin-top: 8vw;
-  }
-  100% {
-    opacity: 1;
-    height: 100%;
-    margin-top: 0;
-  }
-}
-@keyframes shake-explore {
-  0% {
-    margin-left: 0;
-  }
-  50% {
-    margin-left: -0.2vw;
-  }
-  100% {
-    margin-left: 0.2vw;
-  }
-}
-@keyframes shake-order {
-  0% {
-    /*margin-left: 35%;*/
-    transform: rotate(0deg);
-  }
-  25% {
-    /*margin-left: 34.5%;*/
-    transform: rotate(2deg);
-  }
-  50% {
-    /*margin-left: 35%;*/
-    transform: rotate(0deg);
-  }
-  75% {
-    /*margin-left: 34.5%;*/
-    transform: rotate(-2deg);
-  }
-  100% {
-    /*margin-left: 35%;*/
-    transform: rotate(0deg);
-  }
-}
-@keyframes heighten-div {
-  0% {
-    height: 0vw;
-  }
-  20% {
-    height: 8vw;
-  }
-  80% {
-    height: 8vw;
-  }
-  100% {
-    height: 25vw;
-  }
-}
-@keyframes padding-top-to-0 {
-  0% {
-    height: 0vw;
-    padding-top: 0vw;
-    margin-bottom: 28vw;
-  }
-  40% {
-    height: 28vw;
-    padding-top: 28vw;
-    margin-bottom: 0vw;
-  }
-  100% {
-    padding-top: 0vw;
-    height: 28vw;
-    margin-bottom: 0vw;
-  }
-}
 /*******************************************************/
 @keyframes enter-the-man-left {
   0% {
@@ -293,7 +110,19 @@ The @ content directive allows for custom properties to be specified in the @inc
 }
 @keyframes rotate-twice {
   50% {
+    transform: rotate(180deg);
+  }
+  100% {
     transform: rotate(360deg);
+    background-color: black;
+  }
+}
+@keyframes rotate-twice-anticlock {
+  33% {
+    transform: rotate(360deg);
+  }
+  66% {
+    transform: rotate(540deg);
   }
   100% {
     transform: rotate(0deg);
@@ -364,10 +193,35 @@ The @ content directive allows for custom properties to be specified in the @inc
     max-width: 75vw;
   }
 }
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 90%;
+    height: 100%;
+  }
+  100% {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 body {
   padding: 0 auto;
   background-color: black;
-  display: flex;
+  /*display: flex;*/
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
@@ -386,11 +240,52 @@ body {
   animation: enter-content-left 0.5s 0.25s ease-out forwards;
 }
 
+.spin-loader__background {
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  z-index: 7;
+  animation: fade-out 4s ease-in forwards;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+}
+.spin-loader__content {
+  width: 30vw;
+  height: 30vw;
+  background-color: white;
+  border-radius: 50%;
+  align-content: center;
+  align-items: center;
+  background-color: transparent;
+  border-top: 1vw solid orange;
+  border-bottom: 1vw solid orange;
+  border-left: 1vw solid white;
+  border-right: 1vw solid white;
+  animation: rotate-twice-anticlock 4s linear infinite;
+  box-sizing: border-box;
+}
+.spin-loader__content img {
+  display: flex;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  animation: rotate-twice 2s linear infinite;
+  background-color: black;
+}
+
 .main-content {
   position: relative;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  animation: fade-in 1.5s 3s linear forwards;
 }
 .main-content__background-image {
   object-fit: cover;
@@ -437,7 +332,7 @@ body {
 .page-content {
   max-width: 75vw;
   height: 80vh;
-  margin-top: 5vh;
+  margin-top: 8vh;
   margin-left: -100vw;
   background-color: rgba(255, 255, 255, 0.623);
   position: absolute;
@@ -546,6 +441,7 @@ body {
   overflow-y: scroll;
   flex-direction: row;
   flex-wrap: wrap;
+  background: transparent;
 }
 .page-content--pictures img {
   display: flex;
@@ -620,7 +516,7 @@ body {
 }
 @media screen and (min-width: 1080px) {
   .page-content--concert .concert-container {
-    width: 20%;
+    width: 28%;
     margin-right: 3%;
   }
 }
@@ -700,30 +596,30 @@ body {
   /*color: white;
   transform: scale(1.1);*/
 }
-.page-content--listen p:nth-child(1) i {
+.page-content--listen p:nth-child(3) i {
   color: #00cc22;
 }
-.page-content--listen p:nth-child(2) i {
+.page-content--listen p:nth-child(4) i {
   background-image: linear-gradient(-45deg, #35c3f3 0%, #8b9fe8 20%, #e681d8 39%, #ffa9a4 76%, #fed2ce 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   text-shadow: 0 0 0.5vw rgba(255, 255, 255, 0.2);
 }
-.page-content--listen p:nth-child(3) i {
+.page-content--listen p:nth-child(5) i {
   color: #3146ff;
 }
-.page-content--listen p:nth-child(4) i {
+.page-content--listen p:nth-child(6) i {
   background: linear-gradient(270deg, #e100ff, #11c1f7, green);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   text-shadow: 0 0 0.5vw rgba(255, 255, 255, 0.1);
 }
-.page-content--listen p:nth-child(5) i {
+.page-content--listen p:nth-child(7) i {
   color: #ff0202;
 }
-.page-content--listen p:nth-child(6) i {
+.page-content--listen p:nth-child(8) i {
   background: linear-gradient(180deg, #030303, #ff9101, white);
   background-clip: text;
   -webkit-background-clip: text;
@@ -733,6 +629,20 @@ body {
 .page-content--listen p > :not(i) {
   font-family: "Cabin Sketch", cursive;
   font-size: 2vw;
+}
+.page-content--listen h2,
+.page-content--listen h3 {
+  box-sizing: border-box;
+  color: white;
+  width: 70vw;
+  text-align: center;
+  margin: 0 0 3vh 0;
+  font-size: 2vh;
+  font-family: "Roboto";
+  text-shadow: 0 0 1vh black;
+  background-color: rgba(255, 129, 25, 0.849);
+  padding: 1% 1%;
+  box-shadow: 0 0 1vw black;
 }
 
 .the-man {
@@ -857,24 +767,10 @@ body {
   animation: bumping-icon 1s ease-in-out forwards;
   /*background: linear-gradient(0deg, rgb(0, 0, 0), rgb(255, 255, 255) 60%);*/
 }
-.nav-bar__item:nth-child(5) {
-  /*box-shadow: -0.1vw -0.1vw 0.1vw rgb(255, 255, 255);*/
-  /*border: 0.3vh solid orange;*/
-}
 @media screen and (min-width: 1080px) {
   .nav-bar__item:nth-child(5) {
     display: none;
   }
-}
-.nav-bar__item:nth-child(5):hover {
-  /*animation: circle-with-white-shadow 0.3s ease-in-out forwards;*/
-}
-.nav-bar__item:nth-child(even) {
-  /*box-shadow: -0.2vh -0.2vh 0.2vh rgb(255, 161, 37);*/
-  /*border: 0.3vh solid white;*/
-}
-.nav-bar__item:nth-child(even):hover {
-  /*animation: circle-with-orange-shadow 0.5s ease-in-out forwards;*/
 }
 
 /*# sourceMappingURL=style.css.map */
