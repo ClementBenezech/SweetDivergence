@@ -172,13 +172,48 @@ body {
   }
 
   &--concert {
+    overflow-y: scroll;
+    background: transparent;
     & p {
-      background-color: black;
-      height: 10vh;
-      width: 90%;
-      color: white;
-      margin-bottom: 3vh;
+      background-color: transparent;
     }
+    & .concert-container {
+      width: 90%;
+      height: max-content;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: rgb(255, 255, 255);
+      border-radius: 1vh;
+      margin-top: 3vh;
+      box-shadow: 1vh 1vh 0.5vh black;
+      border: 0.3vh solid rgb(245, 81, 5);
+    }
+    & img {
+      object-fit: cover;
+
+      display: flex;
+      max-height: 95%;
+      width: 100%;
+    }
+    & .concert-name {
+      width: 100%;
+      text-align: left;
+      color: white;
+      background-color: black;
+      border-radius: 0.8vh 0.8vh 0 0;
+    }
+
+    & .concert-description {
+      width: 100%;
+      text-align: justify;
+      font-size: 2vh;
+      padding: 1vh;
+    }
+
+    width: 100%;
+    color: white;
+    margin-bottom: 3vh;
   }
 
   &--listen {

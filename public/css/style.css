@@ -521,12 +521,46 @@ body {
   color: #dbdbdb;
   background-color: transparent;
 }
-.page-content--concert p {
-  background-color: black;
-  height: 10vh;
-  width: 90%;
+.page-content--concert {
+  overflow-y: scroll;
+  background: transparent;
+  width: 100%;
   color: white;
   margin-bottom: 3vh;
+}
+.page-content--concert p {
+  background-color: transparent;
+}
+.page-content--concert .concert-container {
+  width: 90%;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border-radius: 1vh;
+  margin-top: 3vh;
+  box-shadow: 1vh 1vh 0.5vh black;
+  border: 0.3vh solid #f55105;
+}
+.page-content--concert img {
+  object-fit: cover;
+  display: flex;
+  max-height: 95%;
+  width: 100%;
+}
+.page-content--concert .concert-name {
+  width: 100%;
+  text-align: left;
+  color: white;
+  background-color: black;
+  border-radius: 0.8vh 0.8vh 0 0;
+}
+.page-content--concert .concert-description {
+  width: 100%;
+  text-align: justify;
+  font-size: 2vh;
+  padding: 1vh;
 }
 .page-content--listen {
   flex-direction: row;
