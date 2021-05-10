@@ -2,25 +2,6 @@
 /*Used to adress desktop specific layout
 This mixin uses the width value defined for desktop by retrieving it from the $breakpoints map.
 The @ content directive allows for custom properties to be specified in the @include in the scss class directly, making it reusable*/
-/*trying to create a generic positionning function for absolutely positionned elements in the container-result-list__result-container*/
-/*Step number size*/
-/*Step content margin*/
-/*@mixin step-content-margin($size) {
-  margin: $size $size $size 0px;
-}*/
-/*Handles the "heart filling effect", used on both index. html and restaurant pages.
-It places both hearts (full and empty) at the same absolute position relative to the parent container
-Using either $top and $right for mobile, $desk-top and $desk-right for desktop layout.
-On load, the full heart is placed below the empty one with a lower z-index value, with its opacity set to 0. 
-then, when hovering the "above and empty" heart (far), it will trigger an animation setting it's opacity to 0
-at the same time, using the + operator, the sibling "full heart" (fas) will start having its opacity set to 1
-In the end, the empty heart is invisible, and the full one has taken its place.*/
-/*make the menu item appear 1 by one inside a category
-It takes an item "child index" as an argument, and applies an animation to it. 
-It is called from _restaurant_pages.scss, to be nested inside the __article-container class
-"For every article__container being the "nth" child of its parent (here the parent is the course container), play fade-in-grow-remove-top-margin animation"
-The higher the index, the longer the animation delay. 
-Child N°3 will get a delay of 2 + 0.25 * 3 =  2.75s, N°4 will get 2 + 0.25 * 4 = 3s etc etc*/
 /*For Desktop version of the discover button*/
 @keyframes desktop-btn-anim {
   0% {
@@ -204,18 +185,32 @@ Child N°3 will get a delay of 2 + 0.25 * 3 =  2.75s, N°4 will get 2 + 0.25 * 4
   }
 }
 /*******************************************************/
-@keyframes enter-the-man-below {
+@keyframes enter-the-man-left {
   0% {
-    margin-top: 40vh;
+    margin-left: -40vh;
   }
   10% {
-    margin-top: 29vh;
+    margin-left: -29vh;
   }
   25% {
-    margin-top: 32vh;
+    margin-left: -32vh;
   }
   100% {
-    margin-top: 3vh;
+    margin-left: -10vh;
+  }
+}
+@keyframes bumping-man {
+  0% {
+    margin-left: -10vh;
+  }
+  10% {
+    margin-left: -8vh;
+  }
+  25% {
+    margin-left: -10vh;
+  }
+  100% {
+    margin-left: -9vh;
   }
 }
 @keyframes enter-the-menu-below {
@@ -227,6 +222,17 @@ Child N°3 will get a delay of 2 + 0.25 * 3 =  2.75s, N°4 will get 2 + 0.25 * 4
   }
   100% {
     top: 0vh;
+  }
+}
+@keyframes enter-the-menu-right {
+  0% {
+    left: 100vw;
+  }
+  50% {
+    left: -10vw;
+  }
+  100% {
+    left: 0vw;
   }
 }
 @keyframes circle-with-orange-shadow {
@@ -272,7 +278,9 @@ Child N°3 will get a delay of 2 + 0.25 * 3 =  2.75s, N°4 will get 2 + 0.25 * 4
     top: 0vh;
   }
   100% {
-    top: -78vh;
+    top: -88vh;
+    z-index: 5;
+    background-color: white;
   }
 }
 @keyframes expand-to-bottom {
@@ -284,15 +292,12 @@ Child N°3 will get a delay of 2 + 0.25 * 3 =  2.75s, N°4 will get 2 + 0.25 * 4
   }
 }
 @keyframes rotate-twice {
-  33% {
-    transform: rotate(40deg);
-  }
-  66% {
-    transform: rotate(-30deg);
-    background-color: black;
+  50% {
+    transform: rotate(360deg);
   }
   100% {
     transform: rotate(0deg);
+    background-color: black;
   }
 }
 @keyframes opacity-to-one {
@@ -406,32 +411,37 @@ body {
   background-color: black;
   box-shadow: 0 0 1vh black;
 }
+@media screen and (min-width: 1080px) {
+  .band-banner {
+    max-height: 8vh;
+  }
+}
 
 .band-logo {
   object-fit: cover;
   width: 10vh;
   margin-bottom: 5vh;
   position: absolute;
-  top: -1vh;
+  top: 0vh;
   right: 1.6vh;
   z-index: 5;
   background-color: rgba(211, 211, 211, 0.5);
   border-radius: 50%;
   border: 0.3vh solid orange;
-  box-shadow: -1vh 0 1vh black;
+  box-shadow: 0 1vh 1vh black;
 }
 .band-logo:hover {
-  animation: rotate-twice 2s ease-in-out forwards;
+  animation: rotate-twice 2s ease-out forwards;
 }
 
 .page-content {
   max-width: 75vw;
-  height: 88vh;
+  height: 80vh;
   margin-top: 5vh;
   margin-left: -100vw;
   background-color: rgba(255, 255, 255, 0.623);
   position: absolute;
-  left: 5%;
+  left: 0;
   top: 3vh;
   right: 5%;
   bottom: 5%;
@@ -445,16 +455,30 @@ body {
   z-index: 3;
   align-content: flex-start;
   align-items: center;
-  justify-content: flex-start;
   text-align: center;
   margin-bottom: 1vh;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+  flex-grow: 1;
+}
+@media screen and (min-width: 1080px) {
+  .page-content {
+    max-width: 100%;
+  }
+}
+.page-content::-webkit-scrollbar {
+  display: none;
 }
 .page-content p {
   box-sizing: border-box;
   font-family: "Roboto";
   display: flex;
   flex-direction: row;
-  padding: 5vw 0;
+  padding: 3vh 0;
   overflow: hidden;
   margin: 0 5%;
   width: 90%;
@@ -465,13 +489,12 @@ body {
   justify-items: space-around;
   justify-content: space-around;
   flex-shrink: 1;
-  font-size: 5vw;
+  font-size: 3vh;
   color: black;
 }
 .page-content img {
   object-fit: cover;
   display: flex;
-  max-height: 25%;
   background-color: transparent;
   overflow: hidden;
 }
@@ -487,15 +510,36 @@ body {
 .page-content--home {
   background-color: rgba(206, 206, 206, 0.548);
   display: flex;
-  flex-direction: column;
-  align-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  overflow-y: scroll;
+}
+.page-content--home p {
+  width: 50%;
 }
 .page-content--home img {
-  margin-top: 10vh;
-  width: 80%;
+  margin-top: 5vh;
+  width: 100%;
   border-radius: 1vh;
   box-shadow: 1vh 1vh 0.5vh black;
   border: 1px solid white;
+  max-height: 50vh;
+}
+.page-content--home h2,
+.page-content--home h3 {
+  box-sizing: border-box;
+  color: white;
+  width: 60vw;
+  text-align: center;
+  margin: 0 0 3vh 0;
+  font-size: 2vh;
+  font-family: "Roboto";
+  text-shadow: 0 0 1vh black;
+  background-color: rgba(0, 0, 0, 0.849);
+  padding: 5% 5%;
+  margin-left: -3vh;
+  box-shadow: 0 0 1vw black;
 }
 .page-content--pictures {
   overflow-y: scroll;
@@ -511,15 +555,43 @@ body {
   margin-bottom: 3%;
   box-shadow: 1vw 1vw 0.5vw black;
 }
+@media screen and (min-width: 1080px) {
+  .page-content--pictures img {
+    flex-basis: 30%;
+    margin-right: 3%;
+  }
+}
 .page-content--band {
   overflow-y: scroll;
   text-align: justify;
   word-break: break-word;
   background-color: rgba(0, 0, 0, 0.856);
+  justify-content: space-around;
+}
+.page-content--band img {
+  display: flex;
+  flex-basis: 99%;
+  box-sizing: border-box;
+  width: 100%;
+  object-fit: cover;
+  margin-bottom: 3%;
+  box-shadow: 1vw 1vw 0.5vw black;
+}
+@media screen and (min-width: 1080px) {
+  .page-content--band img {
+    flex-basis: 20%;
+    margin-right: 3%;
+  }
 }
 .page-content--band p {
   color: #dbdbdb;
   background-color: transparent;
+}
+@media screen and (min-width: 1080px) {
+  .page-content--band p {
+    flex-basis: 60%;
+    margin-right: 3%;
+  }
 }
 .page-content--concert {
   overflow-y: scroll;
@@ -543,6 +615,15 @@ body {
   box-shadow: 1vh 1vh 0.5vh black;
   border: 0.3vh solid #f55105;
 }
+@media screen and (min-width: 1080px) {
+  .page-content--concert .concert-container {
+    width: 20%;
+    margin-right: 3%;
+  }
+}
+.page-content--concert .concert-container:hover {
+  transform: scale(1.1);
+}
 .page-content--concert img {
   object-fit: cover;
   display: flex;
@@ -555,6 +636,7 @@ body {
   color: white;
   background-color: black;
   border-radius: 0.8vh 0.8vh 0 0;
+  font-size: 5vh;
 }
 .page-content--concert .concert-description {
   width: 100%;
@@ -583,6 +665,11 @@ body {
   background-color: rgba(0, 0, 0, 0.883);
   overflow: hidden;
   box-shadow: 1vh 1vh 0.5vh black;
+}
+@media screen and (min-width: 1080px) {
+  .page-content--listen p {
+    flex-basis: 30%;
+  }
 }
 .page-content--listen p:hover {
   opacity: 1;
@@ -644,41 +731,31 @@ body {
   font-family: "Cabin Sketch", cursive;
   font-size: 2vw;
 }
-.page-content h2,
-.page-content h3 {
-  box-sizing: border-box;
-  color: white;
-  width: 60vw;
-  text-align: center;
-  margin: 0 0 5vw 0;
-  font-size: 3vw;
-  font-family: "Roboto";
-  text-shadow: 0 0 2vw black;
-  background-color: rgba(0, 0, 0, 0.849);
-  padding: 5% 5%;
-  margin-left: -5vw;
-  box-shadow: 0 0 1vw black;
-}
 
 .the-man {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   position: fixed;
-  bottom: 0;
-  width: 100vw;
-  height: 40vh;
+  left: 0;
+  bottom: 89vh;
+  width: 20vh;
+  height: 20vh;
   padding: 0;
-  z-index: 2;
-  align-items: center;
+  z-index: 99;
+  align-content: flex-start;
 }
 .the-man__image {
   object-fit: contain;
-  object-position: bottom;
+  transform: rotate(90deg);
+  object-position: center;
   overflow: visible;
-  width: 60vw;
+  width: 100%;
   height: 40vh;
-  margin-top: 40vh;
-  animation: enter-the-man-below 2s 1s ease-in-out forwards;
+  margin-left: -40vh;
+  animation: enter-the-man-left 1s ease-in-out forwards;
+}
+.the-man__image:hover {
+  animation: bumping-man 0.5s ease-in-out forwards;
 }
 
 .nav-bar {
@@ -692,26 +769,58 @@ body {
   height: 95vh;
   z-index: 4;
   align-items: center;
-  align-content: flex-end;
   justify-content: flex-end;
+  padding: 0;
   background: linear-gradient(120deg, rgba(255, 255, 255, 0.76), rgba(73, 73, 73, 0.561), rgba(255, 255, 255, 0.76));
+}
+@media screen and (min-width: 1080px) {
+  .nav-bar {
+    flex-direction: row;
+    top: 0vh;
+    right: 0vh;
+    left: 100vw;
+    align-items: flex-start;
+    align-content: flex-end;
+    height: 12vh;
+    width: 100vw;
+    justify-content: flex-end;
+    background: linear-gradient(120deg, rgba(110, 110, 110, 0.76), rgba(34, 34, 34, 0.746));
+  }
 }
 .nav-bar--initial {
   animation: enter-the-menu-below 1s 2.5s ease-in-out forwards;
 }
+@media screen and (min-width: 1080px) {
+  .nav-bar--initial {
+    animation: enter-the-menu-right 1s ease-in-out forwards;
+  }
+}
 .nav-bar--hidden {
   animation: send-to-top 1s ease-in-out forwards;
 }
+@media screen and (min-width: 1080px) {
+  .nav-bar--hidden {
+    animation: none;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+}
 .nav-bar--visible {
   animation: expand-to-bottom 1s ease-in-out forwards;
+}
+@media screen and (min-width: 1080px) {
+  .nav-bar--visible {
+    animation: enter-the-menu-right 1s ease-in-out forwards;
+  }
 }
 .nav-bar__item {
   z-index: 99;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  height: 10vh;
+  align-content: flex-end;
+  height: 8vh;
   position: relative;
   bottom: 0;
   /*background-color: rgba(15, 15, 15, 0.308);*/
@@ -719,7 +828,13 @@ body {
   text-shadow: -0.3vw 0.3vw 0.5vw black;
   font-family: "Fascinate";
   font-size: 1.7vh;
-  margin-top: 1vh;
+  margin-top: 3vh;
+}
+@media screen and (min-width: 1080px) {
+  .nav-bar__item {
+    margin-top: 0vh;
+    margin-right: 10vw;
+  }
 }
 .nav-bar__item:hover {
   color: orange;
@@ -730,7 +845,6 @@ body {
 .nav-bar__item > :not(i) {
   height: 2vh;
   text-align: center;
-  color: white;
 }
 .nav-bar__item i {
   /*background: linear-gradient(0deg, rgb(0, 0, 0), rgb(255, 144, 18) 60%);*/
@@ -741,11 +855,16 @@ body {
   animation: bumping-icon 1s ease-in-out forwards;
   /*background: linear-gradient(0deg, rgb(0, 0, 0), rgb(255, 255, 255) 60%);*/
 }
-.nav-bar__item:nth-child(odd) {
+.nav-bar__item:nth-child(5) {
   /*box-shadow: -0.1vw -0.1vw 0.1vw rgb(255, 255, 255);*/
   /*border: 0.3vh solid orange;*/
 }
-.nav-bar__item:nth-child(odd):hover {
+@media screen and (min-width: 1080px) {
+  .nav-bar__item:nth-child(5) {
+    display: none;
+  }
+}
+.nav-bar__item:nth-child(5):hover {
   /*animation: circle-with-white-shadow 0.3s ease-in-out forwards;*/
 }
 .nav-bar__item:nth-child(even) {
