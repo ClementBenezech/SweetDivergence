@@ -395,12 +395,12 @@ body {
 }
 
 .band-banner {
-  max-height: 10vh;
-  max-width: 50vw;
+  max-height: 15vh;
+  max-width: 75vw;
   object-fit: contain;
   object-position: top;
   position: absolute;
-  top: 3vh;
+  top: 1vh;
   left: -0.3vw;
   z-index: 5;
   background-color: black;
