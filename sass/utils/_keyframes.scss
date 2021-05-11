@@ -121,26 +121,25 @@
 
 @keyframes rotate-twice {
   50% {
-    transform: rotate(180deg);
+    transform: rotate(720deg);
   }
   100% {
-    transform: rotate(360deg);
-    background-color: black;
+    transform: rotate(1440deg);
   }
 }
 
 @keyframes rotate-twice-anticlock {
   33% {
-    transform: rotate(360deg);
+    transform: rotate(-360deg);
 
   }
   66% {
 
-    transform: rotate(540deg);
+    transform: rotate(-720deg);
   }
   100% {
-    transform: rotate(0deg);
-    background-color: black;
+    transform: rotate(-1080deg);
+
 
   }
 }
@@ -221,8 +220,7 @@
     opacity:1;
   }
   99% {
-    opacity:90%;
-    height:100%;
+    opacity:1;
   }
   100% {
     opacity:0;
@@ -234,10 +232,6 @@
 @keyframes fade-in {
   0% {
      opacity:0;
-   }
-   99% {
-     opacity:0.9;
-
    }
    100% {
      opacity:1;

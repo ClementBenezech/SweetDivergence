@@ -28,9 +28,9 @@ body {
   bottom:0;
   left:0;
   right:0;
-  background-color:white;
+  background-color:rgb(0, 0, 0);
   z-index:7;
-  animation: fade-out 4s ease-in forwards;
+  animation: fade-out 5s ease-in forwards;
   align-items:center;
   justify-content: center;
   display:flex;
@@ -44,20 +44,23 @@ body {
     align-content:center;
     align-items:center;
     background-color:transparent;
-    border-top: 1vw solid orange;
-    border-bottom: 1vw solid orange;
-    border-left: 1vw solid rgb(255, 255, 255);
-    border-right: 1vw solid rgb(255, 255, 255);
+    border-top: 2vw solid orange;
+    border-bottom: 2vw solid orange;
+    border-left: 2vw solid rgb(255, 255, 255);
+    border-right: 2vw solid rgb(255, 255, 255);
     animation: rotate-twice-anticlock 4s linear infinite;
     box-sizing:border-box;
     
     & img {
       display:flex;
+      box-sizing:border-box;
+      margin-left:25%;
+      margin-top:25%;
       border-radius: 50%;
       object-fit:cover;
       object-position:center;
-      width:100%;
-      animation: rotate-twice 2s linear infinite;
+      width:50%;
+      animation: rotate-twice 3s linear infinite;
       background-color:black;
     }
   }
@@ -118,7 +121,6 @@ body {
   height: 80vh;
   margin-top: 8vh;
   margin-left: -100vw;
-  background-color: rgba(255, 255, 255, 0.623);
   position: absolute;
   left: 0;
   top: 3vh;
@@ -185,11 +187,11 @@ body {
   }
 
   &--home {
-    background-color: rgba(206, 206, 206, 0.548);
+
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-content: flex-end;
+    align-content: flex-start;
     justify-content: flex-end;
     overflow-y: scroll;
     & p {
@@ -199,10 +201,9 @@ body {
     & img {
       margin-top: 5vh;
       width: 100%;
-      border-radius: 1vh;
       box-shadow: 1vh 1vh 0.5vh black;
-      border: 1px solid white;
       max-height: 60vh;
+      margin-bottom: 5vh;
     }
     & h2,
     h3 {
@@ -281,6 +282,24 @@ body {
     & p {
       background-color: transparent;
     }
+    & h2,
+    h3 {
+      box-sizing: border-box;
+      color: rgb(255, 255, 255);
+      width:30vw;
+      text-align: center;
+      margin: 0 0 0 0;
+      margin-left:0;
+      font-size: 2vh;
+      font-family: "Roboto";
+      text-shadow: 0 0 1vh black;
+      background-color: rgba(255, 129, 25, 0.849);
+      padding: 0.5%;
+      box-shadow: 0 0 1vw black;
+      @include desktop-only {
+        margin-right: 60vw;
+      }
+    }
     & .concert-container {
       width: 90%;
       @include desktop-only {
@@ -336,7 +355,8 @@ body {
     justify-items: space-around;
     justify-content: space-around;
     background-color: transparent;
-    & p {
+    & a {
+      text-decoration: none;
       box-sizing: border-box;
       font-family: "Roboto";
       display: flex;
@@ -497,7 +517,7 @@ body {
   display: flex;
   flex-direction: column;
   position: fixed;
-  top: 0;
+  top: 100vh;
   right: 3vh;
 
   box-shadow: 0 0 1vw rgba(0, 0, 0, 0.719);
@@ -518,7 +538,7 @@ body {
 
   @include desktop-only {
     flex-direction: row;
-    top: 0vh;
+    top: 0;
     right: 0vh;
     left: 100vw;
     align-items: flex-start;
@@ -535,7 +555,7 @@ body {
   }
 
   &--initial {
-    animation: enter-the-menu-below 1s 2.5s ease-in-out forwards;
+    animation: enter-the-menu-below 1s 4s ease-in-out forwards;
     @include desktop-only {
       animation: enter-the-menu-right 1s ease-in-out forwards;
     }
