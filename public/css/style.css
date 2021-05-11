@@ -95,7 +95,7 @@ The @ content directive allows for custom properties to be specified in the @inc
     top: 0vh;
   }
   100% {
-    top: -67vh;
+    top: -65vh;
     z-index: 3;
     background-color: white;
     border-radius: 10vw;
