@@ -95,9 +95,10 @@ The @ content directive allows for custom properties to be specified in the @inc
     top: 0vh;
   }
   100% {
-    top: -88vh;
-    z-index: 5;
+    top: -67vh;
+    z-index: 3;
     background-color: white;
+    border-radius: 10vw;
   }
 }
 @keyframes expand-to-bottom {
@@ -317,7 +318,7 @@ body {
   top: 0vh;
   right: 1.6vh;
   z-index: 5;
-  background-color: rgba(211, 211, 211, 0.5);
+  background-color: black;
   border-radius: 50%;
   border: 0.3vh solid orange;
   box-shadow: 0 1vh 1vh black;
@@ -694,7 +695,7 @@ body {
   right: 3vh;
   box-shadow: 0 0 1vw rgba(0, 0, 0, 0.719);
   width: 8vh;
-  height: 95vh;
+  height: 85%;
   z-index: 4;
   align-items: center;
   justify-content: flex-end;
