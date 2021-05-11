@@ -350,11 +350,12 @@ body {
 
   &--listen {
     flex-direction: row;
-    align-items: center;
-    align-content: center;
+    align-items: flex-start;
+    align-content: flex-start;
     justify-items: space-around;
     justify-content: space-around;
     background-color: transparent;
+    overflow:hidden;
     & a {
       text-decoration: none;
       box-sizing: border-box;
