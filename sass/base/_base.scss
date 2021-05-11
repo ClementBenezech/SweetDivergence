@@ -351,7 +351,7 @@ body {
   &--listen {
     flex-direction: row;
     align-items: flex-start;
-    align-content: flex-start;
+    align-content: center;
     justify-items: space-around;
     justify-content: space-around;
     background-color: transparent;
@@ -366,6 +366,7 @@ body {
       overflow: visible;
       margin: 1vh 1vh;
       flex-basis: 40%;
+      max-height: 10vh;
       @include desktop-only {
         flex-basis: 30%;
       }
