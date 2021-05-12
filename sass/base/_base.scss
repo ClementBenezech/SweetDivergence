@@ -324,19 +324,26 @@ body {
     }
     & .concert-container {
       width: 90%;
+      flex-direction: column;
       @include desktop-only {
-        width: 28%;
+        &:nth-child(even) {
+          flex-basis: 28%;
+          margin-top: 15vh;
+        }
+        &:nth-child(odd) {
+          flex-basis: 28%
+        }
         margin-right: 3%;
       }
       height: max-content;
       display: flex;
-      flex-direction: column;
+      
       align-items: center;
       background-color: rgb(255, 255, 255);
       border-radius: 1vh;
       margin-top: 3vh;
-      box-shadow: 1vh 1vh 0.5vh black;
-      border: 0.3vh solid rgb(245, 81, 5);
+      box-shadow: 1vh 1vh 0.5vh black, -0.5vh -0.5vh 1.5vh white;
+      /*border: 0.3vh solid rgb(245, 81, 5);*/
       &:hover {
         transform: scale(1.1);
       }
