@@ -122,7 +122,6 @@ The @ content directive allows for custom properties to be specified in the @inc
 }
 @keyframes rotate-twice-anticlock {
   0% {
-    transform: rotate(0deg);
     margin-bottom: 0;
   }
   50% {
@@ -202,7 +201,7 @@ The @ content directive allows for custom properties to be specified in the @inc
   0% {
     opacity: 1;
   }
-  99% {
+  70% {
     opacity: 1;
   }
   100% {
@@ -294,7 +293,7 @@ body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  animation: fade-in 1.5s 3s linear forwards;
+  animation: fade-in 1.5s 3.5s linear forwards;
 }
 .main-content__background-image {
   object-fit: cover;
