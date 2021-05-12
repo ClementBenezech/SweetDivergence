@@ -134,13 +134,20 @@
 
 @keyframes rotate-twice-anticlock {
   0% {
-
+    transform: rotate(0deg);
+    margin-bottom: 0;
+  }
+  50% {
+    transform: rotate(-540deg);
+    margin-bottom:10vw
   }
   100% {
     transform: rotate(-1080deg);
+    margin-bottom: 0;
   }
-
 }
+
+
 
 @keyframes opacity-to-one {
   0% {

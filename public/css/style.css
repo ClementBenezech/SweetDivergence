@@ -121,8 +121,17 @@ The @ content directive allows for custom properties to be specified in the @inc
   }
 }
 @keyframes rotate-twice-anticlock {
+  0% {
+    transform: rotate(0deg);
+    margin-bottom: 0;
+  }
+  50% {
+    transform: rotate(-540deg);
+    margin-bottom: 10vw;
+  }
   100% {
     transform: rotate(-1080deg);
+    margin-bottom: 0;
   }
 }
 @keyframes opacity-to-one {
@@ -241,11 +250,11 @@ body {
   right: 0;
   background-color: black;
   z-index: 7;
-  animation: fade-out 7s ease-in forwards;
+  animation: fade-out 6s ease-in forwards;
   align-items: center;
   justify-content: center;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 .spin-loader__content {
   width: 30vw;
@@ -274,6 +283,10 @@ body {
   width: 50%;
   animation: rotate-twice 3s linear infinite;
   background-color: black;
+}
+.spin-loader__text {
+  color: white;
+  font-family: "Roboto";
 }
 
 .main-content {
