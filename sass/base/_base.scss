@@ -35,35 +35,49 @@ body {
   justify-content: center;
   display:flex;
   flex-direction:column;
-  
   }
-  &__content {
-    width: 30vw;
-    height:30vw;
-    background-color:white;
-    border-radius: 50%;
-    align-content:center;
-    align-items:center;
+  &__disc {
     background-color:transparent;
     border-top: 0.5vw solid orange;
     border-bottom: 0.5vw solid orange;
+    border-radius: 50%;
     border-left: 0.5vw solid rgba(255, 255, 255, 0);
     border-right: 0.5vw solid rgba(255, 255, 255, 0);
+    width: 20vw;
+    height:20vw;
+    align-content:center;
+    align-items:center;
+    position:absolute;
     animation: rotate-twice-anticlock  3s linear infinite;
+
+  }
+
+  &__content {
+    width: 20vw;
+    height:20vw;
+    background-color:transparent;
+    
+    align-content:center;
+    align-items:center;
+    justify-content:center;
+   
+    display:flex;
     box-sizing:border-box;
-    overflow:hidden;
+    /*animation: hover-up-down 2s linear forwards;*/
+    
+    
+
     
     & img {
       display:flex;
       box-sizing:border-box;
-      margin-left:25%;
-      margin-top:25%;
       border-radius: 50%;
       object-fit:cover;
       object-position:center;
-      width:50%;
-      animation: rotate-twice 3s linear infinite;
-      background-color:black;
+      width:10vw;
+      animation: grow-then-shrink 3s linear infinite;
+      background-color:transparent;
+      overflow:visible;
     }
   }
   &__text {

@@ -109,27 +109,39 @@ The @ content directive allows for custom properties to be specified in the @inc
     top: 0vh;
   }
 }
-@keyframes rotate-twice {
+@keyframes grow-then-shrink {
   0% {
-    transform: scale(1) rotate(0deg);
+    transform: scale(1);
   }
   50% {
-    transform: scale(2) rotate(540deg);
+    transform: scale(1.4);
   }
   100% {
-    transform: scale(1) rotate(1080deg);
+    transform: scale(1);
   }
 }
 @keyframes rotate-twice-anticlock {
-  0% {
-    margin-bottom: 0;
-  }
   50% {
     transform: rotate(-540deg);
-    margin-bottom: 10vw;
   }
   100% {
     transform: rotate(-1080deg);
+  }
+}
+@keyframes hover-up-down {
+  0% {
+    margin-bottom: 0;
+  }
+  25% {
+    margin-bottom: -5vh;
+  }
+  50% {
+    margin-bottom: 0;
+  }
+  75% {
+    margin-bottom: 5vh;
+  }
+  100% {
     margin-bottom: 0;
   }
 }
@@ -255,33 +267,41 @@ body {
   display: flex;
   flex-direction: column;
 }
-.spin-loader__content {
-  width: 30vw;
-  height: 30vw;
-  background-color: white;
-  border-radius: 50%;
-  align-content: center;
-  align-items: center;
+.spin-loader__disc {
   background-color: transparent;
   border-top: 0.5vw solid orange;
   border-bottom: 0.5vw solid orange;
+  border-radius: 50%;
   border-left: 0.5vw solid rgba(255, 255, 255, 0);
   border-right: 0.5vw solid rgba(255, 255, 255, 0);
+  width: 20vw;
+  height: 20vw;
+  align-content: center;
+  align-items: center;
+  position: absolute;
   animation: rotate-twice-anticlock 3s linear infinite;
+}
+.spin-loader__content {
+  width: 20vw;
+  height: 20vw;
+  background-color: transparent;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
   box-sizing: border-box;
-  overflow: hidden;
+  /*animation: hover-up-down 2s linear forwards;*/
 }
 .spin-loader__content img {
   display: flex;
   box-sizing: border-box;
-  margin-left: 25%;
-  margin-top: 25%;
   border-radius: 50%;
   object-fit: cover;
   object-position: center;
-  width: 50%;
-  animation: rotate-twice 3s linear infinite;
-  background-color: black;
+  width: 10vw;
+  animation: grow-then-shrink 3s linear infinite;
+  background-color: transparent;
+  overflow: visible;
 }
 .spin-loader__text {
   color: white;
