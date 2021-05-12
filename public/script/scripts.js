@@ -1,4 +1,4 @@
-var currentContent = "page-content";
+var currentContent = "home-content";
 
 
 document.getElementById("nav-bar__item-1").addEventListener("click", navigateToListen, true);
@@ -49,9 +49,9 @@ function navigateToHome() {
     document.getElementById(currentContent).classList.remove("enter-left");
     document.getElementById(currentContent).classList.remove ("page-content--normal");
     document.getElementById(currentContent).classList.add("exit-right");
-    document.getElementById("page-content").classList.add("enter-left")
-    document.getElementById("pictures-content").classList.remove("exit-right");
-    currentContent = document.getElementById("page-content").id
+    document.getElementById("home-content").classList.add("enter-left")
+    document.getElementById("home-content").classList.remove("exit-right");
+    currentContent = document.getElementById("home-content").id
 }
 
 function hideNavBar () {
