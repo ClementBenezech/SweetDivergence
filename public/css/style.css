@@ -735,11 +735,11 @@ body {
   }
 }
 .nav-bar--initial {
-  animation: enter-the-menu-below 1s 4s ease-in-out forwards;
+  animation: enter-the-menu-below 1s 5s ease-in-out forwards;
 }
 @media screen and (min-width: 1080px) {
   .nav-bar--initial {
-    animation: enter-the-menu-right 1s ease-in-out forwards;
+    animation: enter-the-menu-right 1s 5s ease-in-out forwards;
   }
 }
 .nav-bar--hidden {

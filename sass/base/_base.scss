@@ -571,9 +571,9 @@ body {
   }
 
   &--initial {
-    animation: enter-the-menu-below 1s 4s ease-in-out forwards;
+    animation: enter-the-menu-below 1s 5s ease-in-out forwards;
     @include desktop-only {
-      animation: enter-the-menu-right 1s ease-in-out forwards;
+      animation: enter-the-menu-right 1s 5s ease-in-out forwards;
     }
   }
 
