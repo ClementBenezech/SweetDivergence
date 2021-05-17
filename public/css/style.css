@@ -95,10 +95,10 @@ The @ content directive allows for custom properties to be specified in the @inc
     top: 0vh;
   }
   100% {
-    top: -54vh;
+    top: -58vh;
     z-index: 3;
     background-color: white;
-    border-radius: 10vw;
+    /*border-radius:10vw;*/
   }
 }
 @keyframes expand-to-bottom {
@@ -525,6 +525,12 @@ body {
   color: white;
   margin-bottom: 3vh;
 }
+@media screen and (min-width: 1080px) {
+  .page-content--concert {
+    display: flex;
+    flex-direction: row;
+  }
+}
 .page-content--concert p {
   background-color: transparent;
 }
@@ -550,10 +556,10 @@ body {
   }
 }
 .page-content--concert .concert-container {
-  width: 90%;
-  flex-direction: column;
+  width: 100%;
   height: max-content;
   display: flex;
+  flex-direction: column;
   align-items: center;
   background-color: white;
   border-radius: 1vh;
@@ -563,14 +569,17 @@ body {
 }
 @media screen and (min-width: 1080px) {
   .page-content--concert .concert-container {
+    /*&:nth-child(3n+1) {
+      flex-basis: 28%;
+      margin-top: 0vh;
+    }*/
     margin-right: 3%;
   }
   .page-content--concert .concert-container:nth-child(even) {
-    flex-basis: 28%;
-    margin-top: 15vh;
+    flex-basis: 18%;
   }
   .page-content--concert .concert-container:nth-child(odd) {
-    flex-basis: 28%;
+    flex-basis: 25%;
   }
 }
 .page-content--concert .concert-container:hover {
@@ -736,6 +745,7 @@ body {
   width: 8vh;
   max-height: 90vh;
   z-index: 4;
+  border-radius: 0vh 0vh 0.5vh 0.5vh;
   align-items: center;
   justify-content: flex-end;
   padding: 0;
@@ -810,6 +820,7 @@ body {
     width: 10vw;
     flex-direction: row;
     align-content: center;
+    justify-content: space-evenly;
   }
 }
 .nav-bar__item:hover {
@@ -825,12 +836,14 @@ body {
 }
 .nav-bar__item i {
   /*background: linear-gradient(0deg, rgb(0, 0, 0), rgb(255, 144, 18) 60%);*/
-  padding: 2vh;
   font-size: 4vh;
 }
 .nav-bar__item i:hover {
   animation: bumping-icon 1s ease-in-out forwards;
   /*background: linear-gradient(0deg, rgb(0, 0, 0), rgb(255, 255, 255) 60%);*/
+}
+.nav-bar__item:nth-child(5) {
+  padding: 0vh;
 }
 @media screen and (min-width: 1080px) {
   .nav-bar__item:nth-child(5) {

@@ -301,6 +301,10 @@ body {
   &--concert {
     overflow-y: scroll;
     background: transparent;
+    @include desktop-only {
+      display:flex;
+      flex-direction:row;
+    }
     & p {
       background-color: transparent;
     }
@@ -323,21 +327,24 @@ body {
       }
     }
     & .concert-container {
-      width: 90%;
-      flex-direction: column;
+      width: 100%;
+      height: max-content;
+      
       @include desktop-only {
         &:nth-child(even) {
-          flex-basis: 28%;
-          margin-top: 15vh;
+          flex-basis: 18%;
         }
         &:nth-child(odd) {
-          flex-basis: 28%
+          flex-basis: 25%;
         }
+        /*&:nth-child(3n+1) {
+          flex-basis: 28%;
+          margin-top: 0vh;
+        }*/
         margin-right: 3%;
       }
-      height: max-content;
       display: flex;
-      
+      flex-direction: column;
       align-items: center;
       background-color: rgb(255, 255, 255);
       border-radius: 1vh;
@@ -555,6 +562,7 @@ body {
   width: 8vh;
   max-height: 90vh;
   z-index: 4;
+  border-radius: 0vh 0vh 0.5vh 0.5vh;
 
 
   align-items: center;
@@ -624,6 +632,7 @@ body {
     height: 8vh;
     position: relative;
     bottom: 0;
+
     /*background-color: rgba(15, 15, 15, 0.308);*/
     color: rgb(255, 255, 255);
     text-shadow: -0.3vw 0.3vw 0.5vw black;
@@ -638,6 +647,7 @@ body {
       width: 10vw;
       flex-direction:row;
       align-content: center;
+      justify-content:space-evenly;
     }
     &:hover {
       color: black;
@@ -654,7 +664,7 @@ body {
     }
     & i {
       /*background: linear-gradient(0deg, rgb(0, 0, 0), rgb(255, 144, 18) 60%);*/
-      padding: 2vh;
+      
       font-size: 4vh;
       &:hover {
         animation: bumping-icon 1s ease-in-out forwards;
@@ -662,8 +672,10 @@ body {
       }
     }
     &:nth-child(5) {
+      padding: 0vh;
       @include desktop-only {
         display: none;
+
       }
     }
   }
